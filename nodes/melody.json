@@ -4,7 +4,8 @@
   },
   "run_list": [
     "yum",
-    "nginx"
+    "nginx",
+    "firewall"
   ],
   "automatic": {
     "ipaddress": "melody"

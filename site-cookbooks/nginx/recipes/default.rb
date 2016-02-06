@@ -15,8 +15,18 @@ yum_repository 'epel' do
   action :create
 end
 
-service 'iptables' do
-  action [:disable, :stop]
+# enable platform default firewall
+# @see https://supermarket.chef.io/cookbooks/firewall#knife
+firewall 'default' do
+  action :install
+end
+
+# open standard http port to tcp traffic only; insert as first rule
+firewall_rule 'http' do
+  port     80
+  protocol :tcp
+  position 1
+  command   :allow
 end
 
 # @see http://qiita.com/DQNEO/items/e0a6812566e44c7f9577
