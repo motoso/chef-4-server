@@ -3,7 +3,7 @@
     "port": 80
   },
   "run_list": [
-    "yum::epel",
+    "yum",
     "nginx"
   ],
   "automatic": {
